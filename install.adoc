@@ -2,5 +2,8 @@ Projet de prise en main ansible et déploiement automatique
 
 
 == Error 407 acces repository git
-git config --global http.proxy http://[user]@proxyhost:port
+git config --global http.proxy http://[user]@proxyhost:port +
 git config --global credential.helper wincred
+
+
+
