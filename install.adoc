@@ -1,5 +1,6 @@
 Projet de prise en main ansible et déploiement automatique
 
+Petit essay
 
 == Error 407 acces repository git
 git config --global http.proxy http://[user]@proxyhost:port +
