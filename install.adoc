@@ -6,4 +6,44 @@ git config --global http.proxy http://[user]@proxyhost:port +
 git config --global credential.helper wincred
 
 
+== Access proxy sur linux
 
+
+== gestion répertoire paratagés
+from https://www.howtogeek.com/176471/how-to-share-files-between-windows-and-linux/
+
+.Share Linux to Windows samba
+------------
+yum -y install samba
+useradd geek
+passwd geek
+    geek
+smbpasswd -a geek
+su - geek
+    mkdir ~/shared/
+
+vi /etc/samba/smb.conf
+    [shared]
+            path = /home/geek/shared
+            available = yes
+            valid users = geek
+            read only = no
+            browsable = yes
+            public = yes
+            writable = yes
+
+systemctl enable smb
+service smb restart
+
+chcon -t samba_share_t /home/geek/shared/
+------------
+
+.Share Windows to Linux (Avoid it)
+------------
+yum install cifs-utils
+
+su - geek
+    mkdir ~/GiesvBasicAnsible
+
+mount.cifs //pc-local/GiesvBasicAnsible /home/geek/GiesvBasicAnsible -o user=windows_user
+------------
